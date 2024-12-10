@@ -193,13 +193,10 @@ font-family:Verdana, Geneva, Tahoma, sans-serif /* Example font style */
     text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8), 0px 0px 20px #000000;
 }
 
-#guessBtn:hover {
-    background-color: #00ff0d; /* Darker green on hover */
-}
 
 /* Style the Hint button */
 #hintBtn {
-    background-color: #ff0000; /* Orange */
+    background-color: #838383; /* Orange */
     color: white;
     font-size: 16px;
     padding: 10px 20px;
@@ -209,15 +206,15 @@ font-family:Verdana, Geneva, Tahoma, sans-serif /* Example font style */
     transition: background-color 0.3s;
     text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8), 0px 0px 20px #000000;
 }
-
 #hintBtn:hover {
-    background-color: #ff0000; /* Darker orange on hover */
+    background-color: #ff0000; /* Darker green on hover */
 }
+
 
 /* Style the Start Music button */
 /* Style the Start Music button */
 #startMusicBtn {
-    background-color: #959595; /* Blue */
+    background-color: #0533ff; /* Blue */
     color: white;
     font-size: 16px;
     padding: 10px 20px;
@@ -226,19 +223,14 @@ font-family:Verdana, Geneva, Tahoma, sans-serif /* Example font style */
     cursor: pointer;
     transition: background-color 0.3s;
     text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8), 0px 0px 20px #000000;
-    position: fixed; /* Fix button to the page */
-    bottom: 20px; /* 20px from the bottom */
-    right: 20px; /* 20px from the left */
     margin-bottom: 10px;
 }
 
-#startMusicBtn:hover {
-    background-color: #0059ff; /* Darker blue on hover */
-}
+
 
 /* Style the Stop Music button */
 #stopMusicBtn {
-    background-color: #959595; /* Blue */
+    background-color: #ff0000; /* Blue */
     color: white;
     font-size: 16px;
     padding: 10px 20px;
@@ -247,16 +239,8 @@ font-family:Verdana, Geneva, Tahoma, sans-serif /* Example font style */
     cursor: pointer;
     transition: background-color 0.3s;
     text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8), 0px 0px 20px #000000;
-    position: fixed; /* Fix button to the page */
-    bottom: 20px; /* 20px from the bottom */
-    right: 20px; /* 20px from the left */
     margin-bottom: 10px;
 }
-
-#stopMusicBtn:hover {
-    background-color: #ff0000; /* Darker red on hover */
-}
-
 
 /* Optional: Add some space between buttons */
 button {
