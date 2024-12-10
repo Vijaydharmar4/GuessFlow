@@ -49,8 +49,17 @@
     <script src="https://w.soundcloud.com/player/api.js"></script>
     <script src="word.js"></script>
 
-    <!-- Inline Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+
     <script>
+        // Initialize Hammer.js for swipe gesture detection
+        var hammer = new Hammer(document.body);  // Attach to the entire body
+
+        // Detect swipe down and refresh the page
+        hammer.on('swipedown', function(e) {
+            console.log("Swipe Down detected! Refreshing...");
+            window.location.reload(); // Reload the page
+        });
         // Initialize SoundCloud widget
         const widget = SC.Widget(document.getElementById('musicPlayer'));
     

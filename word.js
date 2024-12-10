@@ -2,7 +2,8 @@
 const wordSets = [
     ["drive", "safe", "zone", "out", "smart", "phone"],
     ["work", "hard", "drive", "safe", "place", "value"],
-    ["computer", "science", "experiment", "outcome", "analysis", "report"]
+    ["computer", "science", "experiment", "outcome", "analysis", "report"],
+    ["note", "book", "mark", "sheet", "strap", "down"]
 ];
 
 let currentWords = []; // The current word set in use
