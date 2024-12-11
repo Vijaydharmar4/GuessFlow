@@ -4,81 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GuessFlow</title>
-    <!-- Use a single, optimized font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="word.css" rel="stylesheet">
 </head>
 <body>
-    
     <!-- Background Particles -->
     <div id="particles-container">
-        <!-- Fewer particles for better performance -->
-        <div class="particle" style="top: 10%; left: 20%; width: 15px; height: 15px;"></div>
-        <div class="particle" style="top: 30%; left: 50%; width: 20px; height: 20px;"></div>
-        <div class="particle" style="top: 70%; left: 70%; width: 25px; height: 25px;"></div>
-        <div class="particle" style="top: 50%; left: 80%; width: 30px; height: 30px;"></div>
-        <div class="particle" style="top: 20%; left: 15%; width: 18px; height: 18px;"></div>
+        <!-- Reduced particles for performance -->
+        <div class="particle" style="top: 10%; left: 20%;"></div>
+        <div class="particle" style="top: 30%; left: 50%;"></div>
+        <div class="particle" style="top: 70%; left: 70%;"></div>
     </div>
-
-    <!-- Hidden SoundCloud Player -->
-    <iframe 
-        id="musicPlayer" 
-        width="0" 
-        height="0" 
-        scrolling="no" 
-        frameborder="no" 
-        allow="autoplay" 
-        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/197478772&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false">
-    </iframe>
 
     <!-- Game UI -->
     <div id="game">
         <h1>GUESS THE WORDS</h1>
         <div id="word-list"></div>
-        <input type="text" id="guess" placeholder="Enter your guess" />
-        <button id="guessBtn" onclick="submitGuess()">Submit</button>
-        <button id="hintBtn" onclick="revealNextLetter()">Hint</button>
+        <input type="text" id="guess" placeholder="Enter your guess">
+        <div class="buttons-container">
+            <button id="guessBtn" onclick="submitGuess()">Submit</button>
+            <button id="hintBtn" onclick="revealNextLetter()">Hint</button>
+        </div>
         <p id="message"></p>
-        <!-- Music Control Buttons -->
+        <!-- Music Controls -->
         <div id="music-controls">
             <button id="startMusicBtn" onclick="startMusic()">Start Music</button>
             <button id="stopMusicBtn" onclick="stopMusic()" style="display: none;">Stop Music</button>
         </div>
     </div>
 
-    <!-- External Scripts -->
+    <iframe id="musicPlayer" width="0" height="0" scrolling="no" frameborder="no" allow="autoplay" 
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/197478772&color=%23ff5500&auto_play=false&visual=false">
+    </iframe>
+
     <script src="https://w.soundcloud.com/player/api.js"></script>
     <script src="word.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
-
-    <script>
-        // Initialize Hammer.js for swipe gesture detection
-        var hammer = new Hammer(document.body);  // Attach to the entire body
-
-        // Detect swipe down and refresh the page
-        hammer.on('swipedown', function(e) {
-            console.log("Swipe Down detected! Refreshing...");
-            window.location.reload(); // Reload the page
-        });
-        // Initialize SoundCloud widget
-        const widget = SC.Widget(document.getElementById('musicPlayer'));
-    
-        // Music Control Functions
-        function startMusic() {
-            widget.play();
-            document.getElementById("startMusicBtn").style.display = "none";
-            document.getElementById("stopMusicBtn").style.display = "inline-block";
-        }
-    
-        function stopMusic() {
-            widget.pause();
-            document.getElementById("startMusicBtn").style.display = "inline-block";
-            document.getElementById("stopMusicBtn").style.display = "none";
-        }
-    
-        // Replay Music Automatically
-        widget.bind(SC.Widget.Events.FINISH, () => widget.play());
-    </script>
 </body>
 </html>
