@@ -1,184 +1,171 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #1a1a1a; /* Dark background */
+    color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align content to the top */
+    flex-direction: column;
+    text-align: center;
+    position: relative; /* Needed for the stars to be placed inside the container */
+    min-height: 100vh;  /* Ensure body takes full height of the viewport */
+    overflow-y: auto;  /* Allow vertical scrolling */
+}
 
-        /* General Styling */
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #1a1a1a; /* Dark background */
-            color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start; /* Align content to the top */
-            flex-direction: column;
-            text-align: center;
-            position: relative; /* Needed for the stars to be placed inside the container */
-            min-height: 100vh; /* Ensure body takes full height of the viewport */
-            overflow-y: auto; /* Allow vertical scrolling */
-            overflow-x: hidden; /* Prevent horizontal scroll */
-        }
+/* Star Background */
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/triangles.png') repeat;
+    z-index: 1;
+    pointer-events: none;
+    animation: twinkle 2s infinite alternate;
+}
 
-        /* Star Background */
-        .stars {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://www.transparenttextures.com/patterns/triangles.png') repeat;
-            z-index: 1;
-            pointer-events: none;
-            animation: twinkle 2s infinite alternate;
-        }
+/* Keyframes for stars twinkling */
+@keyframes twinkle {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
 
-        /* Keyframes for stars twinkling */
-        @keyframes twinkle {
-            0% { opacity: 0.5; }
-            50% { opacity: 1; }
-            100% { opacity: 0.5; }
-        }
+/* Game Container */
+#game {
+    align-self: center;
+    background: rgba(0, 0, 0, 0.8);
+    margin-top: 20px;  /* Adds space at the top */
+    margin-bottom: 20px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 500px;
+    z-index: 2; /* To make sure the container stays above the stars */
+    position: relative;
+    overflow: hidden; /* Prevents stars from overflowing the container */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+    margin-left: auto;
+    margin-right: auto;
+}
 
-        /* Game Container */
-        #game {
-            align-self: center;
-            background: rgba(0, 0, 0, 0.8);
-            margin-top: 5vh; /* Use viewport height for better scaling */
-            margin-bottom: 5vh;
-            padding: 5vh;
-            border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            width: 80%;
-            max-width: 90%; /* Max width of the container */
-            z-index: 2; /* To make sure the container stays above the stars */
-            position: relative;
-            overflow: hidden; /* Prevents stars from overflowing the container */
-            transition: transform 0.3s ease-in-out; /* Smooth transition */
-        }
+/* Headings */
+h1 {
+    font-size: 35px; /* Larger value in pixels */
+    margin-bottom: 20px;
+    margin-top: auto;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Slight shadow for emphasis */
+}
 
-        /* Headings */
-        h1 {
-            font-size: 4vw; /* Responsive font size */
-            margin-bottom: 2vh;
-            margin-top: auto;
-            text-transform: uppercase;
-            font-weight: 600;
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
-        }
+/* Input Field */
+input {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #444; /* Darker border for minimal look */
+    background: #1e1e1e;
+    color: #f0f0f0;
+    font-size: 1rem;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6); /* Dark inner shadow */
+}
 
-        /* Input Field */
-        input {
-            width: calc(100% - 20px);
-            padding: 3vh;
-            margin-bottom: 3vh;
-            border-radius: 8px;
-            border: 1px solid #444; /* Darker border for minimal look */
-            background: #1e1e1e;
-            color: #f0f0f0;
-            font-size: 2vw;
-            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6); /* Dark inner shadow */
-        }
+/* Button Styles */
+button {
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    background: #333;
+    border: 1px solid #444;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+}
 
-        /* Button Styles */
-        button {
-            padding: 3vh 6vw;
-            font-size: 2vw;
-            font-weight: 500;
-            color: #ffffff;
-            background: #333;
-            border: 1px solid #444;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            text-transform: uppercase;
-        }
+button:hover {
+    background: #444; /* Slightly lighter on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6); /* Stronger shadow on hover */
+}
 
-        button:hover {
-            background: #444;
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
-        }
+button:active {
+    background: #555; /* Darker on click */
+    transform: scale(1); /* No zoom when clicked */
+}
 
-        button:active {
-            background: #555;
-            transform: scale(1);
-        }
+/* Word List Container */
+.word-list-container {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto; 
+    margin-bottom: 20px;  
+    padding: 20px;
+    background-color: #000000;  
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);  
+    text-align: center;
+}
 
-        /* Word List Container */
-        .word-list-container {
-            width: 100%;
-            max-width: 200px;
-            margin: 0 auto;
-            margin-bottom: 3vh;
-            padding: 5vh;
-            background-color: #000000;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
+/* Style for the word list */
+#word-list {
+    font-size: 18px;
+    color: #f0f0f0;
+    text-transform: uppercase;
+    margin: 0;
+}
 
-        /* Style for the word list */
-        #word-list {
-            font-size: 2vw;
-            color: #f0f0f0;
-            text-transform: uppercase;
-            margin: 0;
-        }
+/* Music Controls */
+#music-controls {
+    margin-top: 20px;
+}
 
-        /* Music Controls */
-        #music-controls {
-            margin-top: 5vh;
-        }
+#music-controls button {
+    padding: 10px 20px;
+    background: #0048ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+}
 
-        #music-controls button {
-            padding: 2vh 4vw;
-            background: #0048ff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.5vw;
-            text-transform: uppercase;
-        }
-
-        /* Mobile Optimizations */
-        @media screen and (max-width: 768px) {
-            h1 {
-                font-size: 5vw;
-            }
-
-            #game {
-                padding: 5vw;
-                width: 90%;
-            }
-
-            input, button {
-                font-size: 4vw;
-            }
-
-            .word-list-container {
-                max-width: 180px;
-                padding: 3vw;
-            }
-        }
-
-        /* Very Small Devices */
-        @media screen and (max-width: 480px) {
-            h1 {
-                font-size: 6vw;
-            }
-
-            #game {
-                padding: 8vw;
-                width: 95%;
-            }
-
-            input, button {
-                font-size: 5vw;
-            }
-
-            .word-list-container {
-                max-width: 150px;
-                padding: 4vw;
-            }
-        }
+/* To make it responsive for larger screens while maintaining a static size */
+@media screen and (min-width: 768px) {
+    body {
+        overflow-x: hidden; /* Avoid horizontal scroll */
+    }
     
+    #game {
+        width: 70%; /* Adjust the container width for larger screens */
+        max-width: 600px; /* Allow max width */
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    input, button {
+        font-size: 16px;
+    }
+
+    .word-list-container {
+        max-width: 250px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #game {
+        width: 60%; /* Further decrease width for large screens */
+    }
+}
