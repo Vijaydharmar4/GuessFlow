@@ -10,7 +10,6 @@ body {
     background: #ffffff; /* Dark background */
     color: #ffffff; /* Light text color for contrast */
 }
-
 /* Game Container */
 #game {
     background: rgba(0, 0, 0, 0.85); /* Dark background with transparency */
@@ -18,7 +17,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); /* Soft shadow for depth */
     width: 90%;
-    max-width: 400px;
+    max-width: 500px;
     text-align: center;
     color: #e0e0e0; /* Light gray text */
 }

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to GuessFlow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global styling */
+    /* Global styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #1a1a1a; /* Dark background */
+    color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Container for the welcome text */
+.welcome-container {
+    background: rgba(0, 0, 0, 0.8);
+    margin-top: auto;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 500px;
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+.welcome-container:hover {
+    transform: scale(1.05); /* Slight upscale on hover */
+}
+
+/* Main welcome text */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+h1:hover {
+    transform: scale(1.1); /* Upscale on hover */
+}
+
+
+
+
+/* Game description */
+p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+p:hover {
+    transform: scale(1.05); /* Slight upscale on hover */
+}
+
+/* Button styling */
+.start-btn {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease-in-out; /* Smooth transitions */
+    text-transform: uppercase;
+}
+
+.start-btn:hover {
+    background-color: #0011ff;
+    transform: scale(1.1); /* Upscale on hover */
+}
+
+/* Optional background animation */
+@keyframes gradientAnimation {
+    0% { background: #ffffff; }
+    50% { background: #818181; }
+    100% { background: #000000; }
+}
+
+body {
+    animation: gradientAnimation 5s infinite alternate;
+}
+
+.description-box {
+    background-color: #000000;  /* Dark background for the box */
+    padding: 20px;           /* Add padding inside the box */
+    border-radius: 10px;     /* Rounded corners for the box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Soft shadow around the box */
+    margin-bottom: 20px;     /* Adds space below the box */
+    max-width: 80%;          /* Restricts the width of the box */
+    margin-left: auto;       /* Centers the box horizontally */
+    margin-right: auto;      /* Centers the box horizontally */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+.description-box:hover {
+    transform: scale(1.05); /* Slight upscale on hover */
+}
+
+.description-box h3 {
+    color: #f0f0f0;          /* Light color for the text */
+    font-size: 1rem;       /* Set font size */
+    line-height: 1.5;        /* Line height for better readability */
+}
+
+
+    </style>
+</head>
+<body>
+
+    <div class="welcome-container">
+        <h1>Welcome to GuessFlow!</h1>
+        <div class="description-box">
+            <h3>GuessFlow is an engaging word-guessing game where players test their vocabulary and quick thinking. In this game, you are given a scrambled or partially revealed word, and your goal is to guess it correctly before time runs out. You can use hints to reveal letters or get assistance if you're stuck. The faster you guess, the higher your score will be!</h3>
+        </div>
+            <h5>Get ready to test your skills in this fun word-guessing game. Can you guess all the words?</p>
+        <button class="start-btn" onclick="startGame()">Start Game</button>
+    </div>
+
+    <script>
+        function startGame() {
+            // Redirect to your game page or start the game
+            window.location.href = 'word.html';  // Update with the actual path to your game page
+        }
+    </script>
+
+</body>
+</html>
+s
