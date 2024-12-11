@@ -1,16 +1,17 @@
 /* General Styling */
 body {
     font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #ffffff; /* Dark background */
-    color: #ffffff; /* Light text color for contrast */
-    overflow: hidden;
-    position: relative; /* For absolute positioning of stars */
+            margin: 0;
+            padding: 0;
+            color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align content to the top */
+            flex-direction: column;
+            text-align: center;
+            position: relative; /* Needed for the stars to be placed inside the container */
+            min-height: 100vh;  /* Ensure body takes full height of the viewport */
+            overflow-y: auto;  /* Allow vertical scrolling */
 }
 
 /* Star Background */
@@ -35,17 +36,19 @@ body {
 
 /* Game Container */
 #game {
-    background: rgba(0, 0, 0, 0.85); /* Dark background with transparency */
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); /* Soft shadow for depth */
-    width: 90%;
-    max-width: 500px;
-    margin-top: 20px;
+    align-self: center;
+    background: rgba(0, 0, 0, 0.8);
+    margin-top: 20px;  /* Adds space at the top */
     margin-bottom: 20px;
-    text-align: center;
-    color: #ffffff; /* Light gray text */
-    z-index: 2; /* To stay above the stars */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 500px;
+    z-index: 2; /* To make sure the container stays above the stars */
+    position: relative;
+    overflow: hidden; /* Prevents stars from overflowing the container */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
 }
 
 /* Headings */
