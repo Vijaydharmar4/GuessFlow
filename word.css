@@ -1,18 +1,18 @@
 /* General Styling */
 body {
     font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start; /* Align content to the top */
-            flex-direction: column;
-            text-align: center;
-            position: relative; /* Needed for the stars to be placed inside the container */
-            min-height: 100vh;  /* Ensure body takes full height of the viewport */
-            overflow-y: auto;  /* Allow vertical scrolling */
-            overflow-x: auto;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    min-height: 100vh;
+    overflow-y: auto;
 }
 
 /* Star Background */
@@ -39,27 +39,26 @@ body {
 #game {
     align-self: center;
     background: rgba(0, 0, 0, 0.8);
-    margin-top: 20px;  /* Adds space at the top */
+    margin-top: 20px;
     margin-bottom: 20px;
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     width: 80%;
     max-width: 500px;
-    z-index: 2; /* To make sure the container stays above the stars */
+    z-index: 2;
     position: relative;
-    overflow: hidden; /* Prevents stars from overflowing the container */
-    transition: transform 0.3s ease-in-out; /* Smooth transition */
+    transition: transform 0.3s ease-in-out;
 }
 
 /* Headings */
 h1 {
-    font-size: 35px; /* Larger value in pixels */
+    font-size: 35px;
     margin-bottom: 20px;
-    margin-top:auto;
+    margin-top: auto;
     text-transform: uppercase;
     font-weight: 600;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Slight shadow for emphasis */
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 }
 
 /* Input Field */
@@ -68,11 +67,11 @@ input {
     padding: 12px;
     margin-bottom: 20px;
     border-radius: 8px;
-    border: 1px solid #444; /* Darker border for minimal look */
+    border: 1px solid #444;
     background: #1e1e1e;
     color: #f0f0f0;
     font-size: 1rem;
-    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6); /* Dark inner shadow */
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6);
 }
 
 /* Button Styles */
@@ -91,26 +90,26 @@ button {
 }
 
 button:hover {
-    background: #444; /* Slightly lighter on hover */
-    transform: scale(1.05); /* Slight zoom effect */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6); /* Stronger shadow on hover */
+    background: #444;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
 }
 
 button:active {
-    background: #555; /* Darker on click */
-    transform: scale(1); /* No zoom when clicked */
+    background: #555;
+    transform: scale(1);
 }
 
 /* Word List Container */
 .word-list-container {
     width: 100%;
     max-width: 200px;
-    margin: 0 auto; 
-    margin-bottom: 20px;  
+    margin: 0 auto;
+    margin-bottom: 20px;
     padding: 20px;
-    background-color: #000000;  
+    background-color: #000000;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);  
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
 
@@ -138,4 +137,50 @@ button:active {
     text-transform: uppercase;
 }
 
+/* Mobile Optimizations */
+@media screen and (max-width: 768px) {
+    /* Reduce font sizes for smaller screens */
+    h1 {
+        font-size: 28px;
+    }
+    
+    /* Adjust game container padding and width */
+    #game {
+        padding: 20px;
+        width: 90%;
+    }
+    
+    /* Input and button sizes */
+    input, button {
+        font-size: 16px;
+        padding: 10px;
+    }
 
+    .word-list-container {
+        max-width: 180px;
+        padding: 15px;
+    }
+}
+
+/* Very Small Devices */
+@media screen and (max-width: 480px) {
+    /* Further reduce font sizes and layout adjustments */
+    h1 {
+        font-size: 24px;
+    }
+
+    #game {
+        padding: 15px;
+        width: 95%;
+    }
+
+    input, button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .word-list-container {
+        max-width: 150px;
+        padding: 10px;
+    }
+}
