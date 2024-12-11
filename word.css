@@ -1,15 +1,20 @@
 
+        /* General Styling */
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: #ffffff;
+            background: #1a1a1a; /* Dark background */
             color: #f0f0f0;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            align-items: flex-start; /* Align content to the top */
             flex-direction: column;
             text-align: center;
+            position: relative; /* Needed for the stars to be placed inside the container */
+            min-height: 100vh; /* Ensure body takes full height of the viewport */
+            overflow-y: auto; /* Allow vertical scrolling */
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
 
         /* Star Background */
@@ -36,20 +41,23 @@
         #game {
             align-self: center;
             background: rgba(0, 0, 0, 0.8);
-            margin-top: 20px;
-            margin-bottom: 20px;
-            padding: 40px;
+            margin-top: 5vh; /* Use viewport height for better scaling */
+            margin-bottom: 5vh;
+            padding: 5vh;
             border-radius: 20px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
             width: 80%;
-            z-index: 2;
-            
+            max-width: 90%; /* Max width of the container */
+            z-index: 2; /* To make sure the container stays above the stars */
+            position: relative;
+            overflow: hidden; /* Prevents stars from overflowing the container */
+            transition: transform 0.3s ease-in-out; /* Smooth transition */
         }
 
         /* Headings */
         h1 {
-            font-size: 35px;
-            margin-bottom: 20px;
+            font-size: 4vw; /* Responsive font size */
+            margin-bottom: 2vh;
             margin-top: auto;
             text-transform: uppercase;
             font-weight: 600;
@@ -59,20 +67,20 @@
         /* Input Field */
         input {
             width: calc(100% - 20px);
-            padding: 12px;
-            margin-bottom: 20px;
+            padding: 3vh;
+            margin-bottom: 3vh;
             border-radius: 8px;
-            border: 1px solid #444;
+            border: 1px solid #444; /* Darker border for minimal look */
             background: #1e1e1e;
             color: #f0f0f0;
-            font-size: 1rem;
-            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6);
+            font-size: 2vw;
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6); /* Dark inner shadow */
         }
 
         /* Button Styles */
         button {
-            padding: 12px 24px;
-            font-size: 14px;
+            padding: 3vh 6vw;
+            font-size: 2vw;
             font-weight: 500;
             color: #ffffff;
             background: #333;
@@ -98,10 +106,10 @@
         /* Word List Container */
         .word-list-container {
             width: 100%;
-            max-width: 250px;
+            max-width: 200px;
             margin: 0 auto;
-            margin-bottom: 20px;
-            padding: 20px;
+            margin-bottom: 3vh;
+            padding: 5vh;
             background-color: #000000;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -110,7 +118,7 @@
 
         /* Style for the word list */
         #word-list {
-            font-size: 18px;
+            font-size: 2vw;
             color: #f0f0f0;
             text-transform: uppercase;
             margin: 0;
@@ -118,64 +126,59 @@
 
         /* Music Controls */
         #music-controls {
-            margin-top: 20px;
+            margin-top: 5vh;
         }
 
         #music-controls button {
-            padding: 10px 20px;
+            padding: 2vh 4vw;
             background: #0048ff;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 1.5vw;
             text-transform: uppercase;
         }
 
         /* Mobile Optimizations */
         @media screen and (max-width: 768px) {
-            /* Reduce font sizes for smaller screens */
             h1 {
-                font-size: 28px;
+                font-size: 5vw;
             }
 
-            /* Adjust game container padding and width */
             #game {
-                padding: 20px;
+                padding: 5vw;
                 width: 90%;
             }
 
-            /* Input and button sizes */
             input, button {
-                font-size: 16px;
-                padding: 10px;
+                font-size: 4vw;
             }
 
             .word-list-container {
-                max-width: 220px;
-                padding: 15px;
+                max-width: 180px;
+                padding: 3vw;
             }
         }
 
         /* Very Small Devices */
         @media screen and (max-width: 480px) {
-            /* Further reduce font sizes and layout adjustments */
             h1 {
-                font-size: 24px;
+                font-size: 6vw;
             }
 
             #game {
-                padding: 15px;
+                padding: 8vw;
                 width: 95%;
             }
 
             input, button {
-                font-size: 14px;
-                padding: 8px;
+                font-size: 5vw;
             }
 
             .word-list-container {
-                max-width: 180px;
-                padding: 10px;
+                max-width: 150px;
+                padding: 4vw;
             }
         }
+    
