@@ -10,10 +10,6 @@
             align-items: flex-start;
             flex-direction: column;
             text-align: center;
-            position: relative;
-            min-height: 100vh;
-            overflow-x: hidden;  /* Prevent horizontal scroll */
-            overflow-y: auto;    /* Allow vertical scroll */
         }
 
         /* Star Background */
@@ -46,10 +42,8 @@
             border-radius: 20px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
             width: 80%;
-            max-width: 600px;  /* Maximum width for large screens */
             z-index: 2;
-            position: relative;
-            transition: transform 0.3s ease-in-out;
+            
         }
 
         /* Headings */
