@@ -7,9 +7,11 @@
     <!-- Use a single, optimized font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="word.css" rel="stylesheet">
+    
 </head>
 <body>
     
+
     <!-- Hidden SoundCloud Player -->
     <iframe 
         id="musicPlayer" 
@@ -24,7 +26,9 @@
     <!-- Game UI -->
     <div id="game">
         <h1>GUESS THE WORDS</h1>
-        <div id="word-list"></div>
+        <div class="word-list-container">
+            <div id="word-list">example word list here</div>
+        </div>
         <input type="text" id="guess" placeholder="Enter your guess" />
         <button id="guessBtn" onclick="submitGuess()">Submit</button>
         <button id="hintBtn" onclick="revealNextLetter()">Hint</button>

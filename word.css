@@ -7,8 +7,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #121212; /* Dark background */
-    color: #f0f0f0; /* Light text color for contrast */
+    background: #ffffff; /* Dark background */
+    color: #ffffff; /* Light text color for contrast */
 }
 
 /* Game Container */
@@ -25,12 +25,14 @@ body {
 
 /* Headings */
 h1 {
-    font-size: 2rem;
+    font-size: 35px; /* Larger value in pixels */
     margin-bottom: 20px;
+    margin-top:auto;
     text-transform: uppercase;
     font-weight: 600;
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Slight shadow for emphasis */
 }
+
 
 /* Input Field */
 input {
@@ -58,7 +60,7 @@ button {
     padding: 12px 24px;
     font-size: 14px;
     font-weight: 500;
-    color: #fff;
+    color: #ffffff;
     background: #333;
     border: 1px solid #444;
     border-radius: 8px;
@@ -96,4 +98,23 @@ button:active {
     input {
         font-size: 1rem;
     }
+}
+.word-list-container {
+    width: 100%;
+    max-width: 200px;  /* Adjust as needed */
+    margin: 0 auto; 
+    margin-bottom: 20px;   /* Center the container */
+    padding: 20px;
+    background-color: #000000;  /* Dark background for contrast */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);  /* Subtle shadow for depth */
+    text-align: center;
+}
+
+/* Style for the word list */
+#word-list {
+    font-size: 18px;
+    color: #f0f0f0;
+    text-transform: capitalize;  /* Capitalize the first letter of each word */
+    margin: 0;
 }
