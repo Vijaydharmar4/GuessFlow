@@ -574,31 +574,55 @@ function updateWordList() {
     wordDisplay.innerHTML = wordListHtml;
 }
 
+// Load sound effects
+const correctSound = new Audio('sounds/correct.mp3'); // Correct guess sound
+const incorrectSound = new Audio('sounds/incorrect.mp3'); // Incorrect guess sound
+const noInputSound = new Audio('sounds/noinput.mp3'); // No input sound
+const completeSound = new Audio('sounds/complete.mp3'); // complete sound
+
+
 // Function to handle a guess
 function submitGuess() {
     const guess = guessInput.value.trim().toLowerCase();
     guessInput.value = ""; // Clear input field
 
     if (!guess) {
+        // No input case
+        noInputSound.play(); // Play no input sound
         messageDisplay.textContent = "Please enter a word!";
+        messageDisplay.className = 'message noinput-message'; // Apply 'noinput-message' class for animation
         return;
     }
 
     if (guess === currentWords[currentWordIndex]) {
-        // Correct guess
+        // Correct guess case
+        correctSound.play(); // Play correct sound
         currentWordIndex++;
         messageDisplay.textContent = "Correct!";
+        messageDisplay.className = 'message correct-message'; // Apply 'correct-message' class for animation
+
         if (currentWordIndex === currentWords.length) {
-            alert("Congratulations! You've guessed all the words!");
-            loadNewWordSet(); // Load a new set when the game finishes
+            completeSound.play();
+            setTimeout(() => {
+                alert("Congratulations! You've guessed all the words!");
+                loadNewWordSet(); // Load a new set when the game finishes
+            }, 500); // Delay alert to let the sound play
         } else {
             updateWordList();
         }
     } else {
-        // Incorrect guess
-        messageDisplay.textContent = "Incorrect! Try again.";
+        // Incorrect guess case
+        incorrectSound.play(); // Play incorrect sound
+        messageDisplay.textContent = "Incorrect!";
+        messageDisplay.className = 'message incorrect-message'; // Apply 'incorrect-message' class for animation
     }
+
+    // Trigger animation by removing the class and re-adding it
+    setTimeout(() => {
+        messageDisplay.classList.remove('correct-message', 'incorrect-message', 'noinput-message');
+    }, 600); // Timeout matches the animation duration
 }
+
 
 // Function to reveal the next letter for the current word when hint button is pressed
 function revealNextLetter() {

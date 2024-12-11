@@ -2,10 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>GuessFlow</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="word.css" rel="stylesheet">
+    <script>
+        // Check if the user has visited `word.html` through a proper flow
+        if (!sessionStorage.getItem('gameStarted')) {
+            // If not, redirect them to `welcome.html`
+            window.location.href = 'welcome.html';
+        }
+    </script>
+    
 </head>
 <body>
 
@@ -29,14 +37,14 @@
         <div class="word-list-container">
             <div id="word-list">example word list here</div>
         </div>
+        <p id="message" class="message"></p>
         <input type="text" id="guess" placeholder="Enter your guess" />
         <button id="guessBtn" onclick="submitGuess()">Submit</button>
         <button id="hintBtn" onclick="revealNextLetter()">Hint</button>
-        <p id="message"></p>
         <!-- Music Control Buttons -->
         <div id="music-controls">
-            <button id="startMusicBtn" onclick="startMusic()">Play Music</button>
-            <button id="stopMusicBtn" onclick="stopMusic()" style="display: none;">Pause Music</button>
+            <button id="startMusicBtn" class="g" onclick="startMusic()">Play Music</button>
+            <button id="stopMusicBtn" class="h" onclick="stopMusic()" style="display: none;">Pause Music</button>
         </div>
     </div>
 
@@ -46,11 +54,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
     <script>
         // Initialize Hammer.js for swipe gesture detection
-        var hammer = new Hammer(document.body);  // Attach to the entire body
-        hammer.on('swipedown', function(e) {
-            console.log("Swipe Down detected! Refreshing...");
-            window.location.reload(); // Reload the page
-        });
+        // var hammer = new Hammer(document.body);  // Attach to the entire body
+        // hammer.on('swipedown', function(e) {
+        //     console.log("Swipe Down detected! Refreshing...");
+        //     window.location.reload(); // Reload the page
+        // });
 
         // Initialize SoundCloud widget
         const widget = SC.Widget(document.getElementById('musicPlayer'));

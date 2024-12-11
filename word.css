@@ -3,7 +3,7 @@ body {
     font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: #1a1a1a; /* Dark background */
+            background: #ffffff; /* Dark background */
             color: #f0f0f0;
             display: flex;
             justify-content: center;
@@ -48,16 +48,15 @@ body {
 /* Game Container */
 #game {
     align-self: center;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            width: 80%;
-            max-width: 500px;
-            z-index: 2; /* To make sure the container stays above the stars */
-            position: relative;
-            overflow: hidden; /* Prevents stars from overflowing the container */
-            transition: transform 0.3s ease-in-out; /* Smooth transition */
+    background: rgba(0, 0, 0, 0.8);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    z-index: 2; /* To make sure the container stays above the stars */
+    position: relative;
+    overflow: hidden; /* Prevents stars from overflowing the container */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
 }
 
 /* Headings */
@@ -105,16 +104,16 @@ button:hover {
 }
 
 button:active {
-    background: #555; /* Darker on click */
+    
     transform: scale(1); /* No zoom when clicked */
 }
 
 /* Word List Container */
 .word-list-container {
-    width: 100%;
+    width: 300%;
     max-width: 200px;
     margin: 0 auto; 
-    margin-bottom: 20px;  
+    margin-bottom: 15px;  
     padding: 20px;
     background-color: #000000;  
     border-radius: 10px;
@@ -140,10 +139,65 @@ button:active {
     background: #0048ff;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
     font-size: 14px;
     text-transform: uppercase;
+}
+
+/* Styling for feedback messages */
+.message {
+    font-size: 0.8rem;
+    padding: 10px; 
+    margin-top: 0px;
+    border-radius: 15px;
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+/* Correct guess message */
+.correct-message {
+    background-color: #00ff08; /* Green background */
+    color: white;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    animation: correctAnimation 0.5s ease-in-out; /* Animation */
+}
+
+/* Incorrect guess message */
+.incorrect-message {
+    background-color: #ff1100; /* Red background */
+    color: white;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    animation: incorrectAnimation 0.5s ease-in-out; /* Animation */
+}
+
+/* No input message */
+.noinput-message {
+    
+    color: white;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    animation: noInputAnimation 0.5s ease-in-out; /* Animation */
+}
+
+/* Keyframe animations */
+@keyframes correctAnimation {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes incorrectAnimation {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes noInputAnimation {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(1.1); opacity: 1; }
 }
 
 
