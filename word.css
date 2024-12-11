@@ -3,7 +3,7 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background: #1a1a1a; /* Dark background */
+    background: #ffffff; /* Dark background */
     color: #f0f0f0;
     display: flex;
     justify-content: center;
@@ -15,16 +15,26 @@ body {
     overflow-y: auto;  /* Allow vertical scrolling */
 }
 
-/* Star Background */
+/* Star background */
 .stars {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('https://www.transparenttextures.com/patterns/triangles.png') repeat;
+    background: transparent;
     z-index: 1;
     pointer-events: none;
+}
+
+.stars::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/triangles.png') repeat;
     animation: twinkle 2s infinite alternate;
 }
 
@@ -38,27 +48,25 @@ body {
 /* Game Container */
 #game {
     align-self: center;
-    background: rgba(0, 0, 0, 0.8);
-    margin-top: 20px;  /* Adds space at the top */
-    margin-bottom: 20px;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    width: 80%;
-    max-width: 500px;
-    z-index: 2; /* To make sure the container stays above the stars */
-    position: relative;
-    overflow: hidden; /* Prevents stars from overflowing the container */
-    transition: transform 0.3s ease-in-out; /* Smooth transition */
-    margin-left: auto;
-    margin-right: auto;
+            background: rgba(0, 0, 0, 0.8);
+            margin-top: 20px;  /* Adds space at the top */
+            margin-bottom: 20px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            width: 80%;
+            max-width: 500px;
+            z-index: 2; /* To make sure the container stays above the stars */
+            position: relative;
+            overflow: hidden; /* Prevents stars from overflowing the container */
+            transition: transform 0.3s ease-in-out; /* Smooth transition */
 }
 
 /* Headings */
 h1 {
     font-size: 35px; /* Larger value in pixels */
     margin-bottom: 20px;
-    margin-top: auto;
+    margin-top:auto;
     text-transform: uppercase;
     font-weight: 600;
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Slight shadow for emphasis */
@@ -140,32 +148,4 @@ button:active {
     text-transform: uppercase;
 }
 
-/* To make it responsive for larger screens while maintaining a static size */
-@media screen and (min-width: 768px) {
-    body {
-        overflow-x: hidden; /* Avoid horizontal scroll */
-    }
-    
-    #game {
-        width: 70%; /* Adjust the container width for larger screens */
-        max-width: 600px; /* Allow max width */
-    }
 
-    h1 {
-        font-size: 40px;
-    }
-
-    input, button {
-        font-size: 16px;
-    }
-
-    .word-list-container {
-        max-width: 250px;
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    #game {
-        width: 60%; /* Further decrease width for large screens */
-    }
-}
