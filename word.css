@@ -12,6 +12,7 @@ body {
             position: relative; /* Needed for the stars to be placed inside the container */
             min-height: 100vh;  /* Ensure body takes full height of the viewport */
             overflow-y: auto;  /* Allow vertical scrolling */
+            overflow-x: auto;
 }
 
 /* Star Background */
