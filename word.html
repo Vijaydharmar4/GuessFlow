@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GuessFlow</title>
-    <!-- Use a single, optimized font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="word.css" rel="stylesheet">
-    
 </head>
 <body>
-    
+
+    <!-- Star Background Container -->
+    <div class="stars"></div>
 
     <!-- Hidden SoundCloud Player -->
     <iframe 
@@ -43,18 +43,15 @@
     <!-- External Scripts -->
     <script src="https://w.soundcloud.com/player/api.js"></script>
     <script src="word.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
-
     <script>
         // Initialize Hammer.js for swipe gesture detection
         var hammer = new Hammer(document.body);  // Attach to the entire body
-
-        // Detect swipe down and refresh the page
         hammer.on('swipedown', function(e) {
             console.log("Swipe Down detected! Refreshing...");
             window.location.reload(); // Reload the page
         });
+
         // Initialize SoundCloud widget
         const widget = SC.Widget(document.getElementById('musicPlayer'));
     
