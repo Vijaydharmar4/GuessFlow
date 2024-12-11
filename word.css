@@ -1,186 +1,187 @@
-/* General Styling */
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #ffffff;
-    color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    text-align: center;
-    position: relative;
-    min-height: 100vh;
-    overflow-y: auto;
-}
 
-/* Star Background */
-.stars {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://www.transparenttextures.com/patterns/triangles.png') repeat;
-    z-index: 1;
-    pointer-events: none;
-    animation: twinkle 2s infinite alternate;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #ffffff;
+            color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;  /* Prevent horizontal scroll */
+            overflow-y: auto;    /* Allow vertical scroll */
+        }
 
-/* Keyframes for stars twinkling */
-@keyframes twinkle {
-    0% { opacity: 0.5; }
-    50% { opacity: 1; }
-    100% { opacity: 0.5; }
-}
+        /* Star Background */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/triangles.png') repeat;
+            z-index: 1;
+            pointer-events: none;
+            animation: twinkle 2s infinite alternate;
+        }
 
-/* Game Container */
-#game {
-    align-self: center;
-    background: rgba(0, 0, 0, 0.8);
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    width: 80%;
-    max-width: 500px;
-    z-index: 2;
-    position: relative;
-    transition: transform 0.3s ease-in-out;
-}
+        /* Keyframes for stars twinkling */
+        @keyframes twinkle {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
 
-/* Headings */
-h1 {
-    font-size: 35px;
-    margin-bottom: 20px;
-    margin-top: auto;
-    text-transform: uppercase;
-    font-weight: 600;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
-}
+        /* Game Container */
+        #game {
+            align-self: center;
+            background: rgba(0, 0, 0, 0.8);
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            width: 80%;
+            max-width: 600px;  /* Maximum width for large screens */
+            z-index: 2;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
 
-/* Input Field */
-input {
-    width: calc(100% - 20px);
-    padding: 12px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    border: 1px solid #444;
-    background: #1e1e1e;
-    color: #f0f0f0;
-    font-size: 1rem;
-    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6);
-}
+        /* Headings */
+        h1 {
+            font-size: 35px;
+            margin-bottom: 20px;
+            margin-top: auto;
+            text-transform: uppercase;
+            font-weight: 600;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+        }
 
-/* Button Styles */
-button {
-    padding: 12px 24px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #ffffff;
-    background: #333;
-    border: 1px solid #444;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    text-transform: uppercase;
-}
+        /* Input Field */
+        input {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #444;
+            background: #1e1e1e;
+            color: #f0f0f0;
+            font-size: 1rem;
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6);
+        }
 
-button:hover {
-    background: #444;
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
-}
+        /* Button Styles */
+        button {
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #ffffff;
+            background: #333;
+            border: 1px solid #444;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            text-transform: uppercase;
+        }
 
-button:active {
-    background: #555;
-    transform: scale(1);
-}
+        button:hover {
+            background: #444;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+        }
 
-/* Word List Container */
-.word-list-container {
-    width: 100%;
-    max-width: 200px;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #000000;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
+        button:active {
+            background: #555;
+            transform: scale(1);
+        }
 
-/* Style for the word list */
-#word-list {
-    font-size: 18px;
-    color: #f0f0f0;
-    text-transform: uppercase;
-    margin: 0;
-}
+        /* Word List Container */
+        .word-list-container {
+            width: 100%;
+            max-width: 250px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #000000;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
 
-/* Music Controls */
-#music-controls {
-    margin-top: 20px;
-}
+        /* Style for the word list */
+        #word-list {
+            font-size: 18px;
+            color: #f0f0f0;
+            text-transform: uppercase;
+            margin: 0;
+        }
 
-#music-controls button {
-    padding: 10px 20px;
-    background: #0048ff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    text-transform: uppercase;
-}
+        /* Music Controls */
+        #music-controls {
+            margin-top: 20px;
+        }
 
-/* Mobile Optimizations */
-@media screen and (max-width: 768px) {
-    /* Reduce font sizes for smaller screens */
-    h1 {
-        font-size: 28px;
-    }
-    
-    /* Adjust game container padding and width */
-    #game {
-        padding: 20px;
-        width: 90%;
-    }
-    
-    /* Input and button sizes */
-    input, button {
-        font-size: 16px;
-        padding: 10px;
-    }
+        #music-controls button {
+            padding: 10px 20px;
+            background: #0048ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
 
-    .word-list-container {
-        max-width: 180px;
-        padding: 15px;
-    }
-}
+        /* Mobile Optimizations */
+        @media screen and (max-width: 768px) {
+            /* Reduce font sizes for smaller screens */
+            h1 {
+                font-size: 28px;
+            }
 
-/* Very Small Devices */
-@media screen and (max-width: 480px) {
-    /* Further reduce font sizes and layout adjustments */
-    h1 {
-        font-size: 24px;
-    }
+            /* Adjust game container padding and width */
+            #game {
+                padding: 20px;
+                width: 90%;
+            }
 
-    #game {
-        padding: 15px;
-        width: 95%;
-    }
+            /* Input and button sizes */
+            input, button {
+                font-size: 16px;
+                padding: 10px;
+            }
 
-    input, button {
-        font-size: 14px;
-        padding: 8px;
-    }
+            .word-list-container {
+                max-width: 220px;
+                padding: 15px;
+            }
+        }
 
-    .word-list-container {
-        max-width: 150px;
-        padding: 10px;
-    }
-}
+        /* Very Small Devices */
+        @media screen and (max-width: 480px) {
+            /* Further reduce font sizes and layout adjustments */
+            h1 {
+                font-size: 24px;
+            }
+
+            #game {
+                padding: 15px;
+                width: 95%;
+            }
+
+            input, button {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .word-list-container {
+                max-width: 180px;
+                padding: 10px;
+            }
+        }
