@@ -14,7 +14,7 @@ body {
 /* Background Animation */
 @keyframes gradientAnimation {
     0% { background: linear-gradient(45deg, #6a11cb, #2575fc); }
-    100% { background: linear-gradient(45deg, #ff6a00, #ff9e00); }
+    100% { background: linear-gradient(45deg, #00ff0d, #00ffc3); }
 }
 
 /* Game Container */
@@ -39,7 +39,7 @@ h1 {
 
 /* Input Field */
 input {
-    width: 100%;
+    width: calc(100% - 20px); /* Prevents overflow */
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 5px;
