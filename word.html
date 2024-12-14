@@ -26,13 +26,22 @@
     <!-- Game UI -->
     <div id="game">
         <h1>GUESS THE WORDS</h1>
+        <div class="header">
+            <span id="timer">02:00</span> <!-- Timer display -->
+        </div>
+        
         <div class="word-list-container">
             <div id="word-list">example word list here</div>
         </div>
-        <p id="message" class="message"></p>
+        <p id="message" class="message"></p><br>
         <input type="text" id="guess" placeholder="Enter your guess" />
+        <div id="hint-section">
+            <p>Hints left: <span id="hint-count">5</span></p>
+        </div>
+        
         <button id="guessBtn" onclick="submitGuess()">Submit</button>
         <button id="hintBtn" onclick="revealNextLetter()">Hint</button>
+        
         <!-- Music Control Buttons -->
         <div id="music-controls">
             <button id="startMusicBtn" class="g" onclick="startMusic()">Play Music</button>
@@ -51,7 +60,7 @@
         //     console.log("Swipe Down detected! Refreshing...");
         //     window.location.reload(); // Reload the page
         // });
-
+//9620102686
         // Initialize SoundCloud widget
         const widget = SC.Widget(document.getElementById('musicPlayer'));
     

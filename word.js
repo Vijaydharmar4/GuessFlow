@@ -537,109 +537,181 @@ const wordSets = [
 
 ];
 
-let currentWords = []; // The current word set in use
-let currentWordIndex = 1; // Start guessing from the second word
-let revealedLetters = []; // Track revealed letters for each word
+// Global Variables
+let currentWords = [];
+let currentWordIndex = 1;
+let revealedLetters = [];
+let timeLeft = 120; // 2 minutes in seconds
+let timerInterval;
+let totalHintLimit = 10; // Total hints allowed
 
-// DOM elements
+// DOM Elements
 const wordDisplay = document.getElementById("word-list");
 const guessInput = document.getElementById("guess");
 const messageDisplay = document.getElementById("message");
-const hintButton = document.getElementById("hint-button"); // Hint button element
+const hintButton = document.getElementById("hint-button");
+const timerDisplay = document.getElementById("timer");
+const hintCountDisplay = document.getElementById("hint-count");
 
-// Function to load a new word set
+// Sound Effects
+const correctSound = new Audio("sounds/correct.mp3");
+const incorrectSound = new Audio("sounds/incorrect.mp3");
+const noInputSound = new Audio("sounds/noinput.mp3");
+const completeSound = new Audio("sounds/complete.mp3");
+const lostSound = new Audio("sounds/noinput.mp3");
+
+// Load New Word Set
 function loadNewWordSet() {
-    // Pick a random set from the available word sets
     currentWords = wordSets[Math.floor(Math.random() * wordSets.length)];
-    currentWordIndex = 1; // Reset to the second word
-    revealedLetters = currentWords.map(word => [word[0]]); // Initialize revealed letters with the first letter
+    currentWordIndex = 1;
+    revealedLetters = currentWords.map(word => [word[0]]);
     updateWordList();
 }
 
-// Function to display the word list
+// Update Word List
 function updateWordList() {
     let wordListHtml = currentWords
         .map((word, index) => {
-            if (index === 0) {
-                return `<p>${word}</p>`; // Fully reveal the first word
-            } else if (index < currentWordIndex) {
-                return `<p>${word}</p>`; // Fully reveal guessed words
-            } else {
-                const revealedPart = revealedLetters[index].join('');
-                const hiddenPart = "_ ".repeat(word.length - revealedPart.length);
-                return `<p>${revealedPart}${hiddenPart}</p>`; // Show partially revealed word
-            }
+            if (index === 0) return `<p>${word}</p>`;
+            if (index < currentWordIndex) return `<p>${word}</p>`;
+            const revealedPart = revealedLetters[index].join('');
+            const hiddenPart = "_ ".repeat(word.length - revealedPart.length);
+            return `<p>${revealedPart}${hiddenPart}</p>`;
         })
         .join("");
     wordDisplay.innerHTML = wordListHtml;
 }
 
-// Load sound effects
-const correctSound = new Audio('sounds/correct.mp3'); // Correct guess sound
-const incorrectSound = new Audio('sounds/incorrect.mp3'); // Incorrect guess sound
-const noInputSound = new Audio('sounds/noinput.mp3'); // No input sound
-const completeSound = new Audio('sounds/complete.mp3'); // complete sound
-
-
-// Function to handle a guess
+// Submit Guess
 function submitGuess() {
     const guess = guessInput.value.trim().toLowerCase();
-    guessInput.value = ""; // Clear input field
+    guessInput.value = ""; // Clear input
 
     if (!guess) {
-        // No input case
-        noInputSound.play(); // Play no input sound
-        messageDisplay.textContent = "Please enter a word!";
-        messageDisplay.className = 'message noinput-message'; // Apply 'noinput-message' class for animation
+        noInputSound.play();
+        showMessage("Please enter a word!", "noinput-message");
         return;
     }
 
     if (guess === currentWords[currentWordIndex]) {
-        // Correct guess case
-        correctSound.play(); // Play correct sound
+        correctSound.play();
         currentWordIndex++;
-        messageDisplay.textContent = "Correct!";
-        messageDisplay.className = 'message correct-message'; // Apply 'correct-message' class for animation
+        showMessage("Correct!", "correct-message");
 
         if (currentWordIndex === currentWords.length) {
-            completeSound.play();
             setTimeout(() => {
-                alert("Congratulations! You've guessed all the words!");
-                loadNewWordSet(); // Load a new set when the game finishes
-            }, 500); // Delay alert to let the sound play
+                completeSound.play();
+                window.location.href = "congrats.html";
+            }, 500);
         } else {
             updateWordList();
         }
     } else {
-        // Incorrect guess case
-        incorrectSound.play(); // Play incorrect sound
-        messageDisplay.textContent = "Incorrect!";
-        messageDisplay.className = 'message incorrect-message'; // Apply 'incorrect-message' class for animation
+        incorrectSound.play();
+        showMessage("Incorrect!", "incorrect-message");
     }
-
-    // Trigger animation by removing the class and re-adding it
-    setTimeout(() => {
-        messageDisplay.classList.remove('correct-message', 'incorrect-message', 'noinput-message');
-    }, 600); // Timeout matches the animation duration
 }
 
-
-// Function to reveal the next letter for the current word when hint button is pressed
+// Reveal Next Letter
 function revealNextLetter() {
     if (currentWordIndex < currentWords.length) {
         const currentWord = currentWords[currentWordIndex];
         const revealedPart = revealedLetters[currentWordIndex];
 
-        // Reveal the next letter of the current word if there are any remaining hidden letters
-        if (revealedPart.length < currentWord.length) {
-            revealedPart.push(currentWord[revealedPart.length]);
-            updateWordList();
+        if (totalHintLimit > 0) {
+            if (revealedPart.length < currentWord.length) {
+                revealedPart.push(currentWord[revealedPart.length]);
+                updateWordList();
+                totalHintLimit--;
+                hintCountDisplay.textContent = totalHintLimit;
+            }
+
+            if (revealedPart.length === currentWord.length) {
+                correctSound.play();
+                showMessage("Correct!", "correct-message");
+
+                setTimeout(() => {
+                    currentWordIndex++;
+                    if (currentWordIndex === currentWords.length) {
+                
+                        setTimeout(() => {
+                            window.location.href = "congrats.html";
+                        }, 500);
+                    } else {
+                        updateWordList();
+                    }
+                }, 800);
+            }
+        } else {
+            showMessage("No hints left!", "noinput-message");
         }
     }
 }
 
-// Initialize the game
-loadNewWordSet();
+// Timer Functionality
+function startTimer() {
+    timerDisplay.textContent = formatTime(timeLeft);
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        timerDisplay.textContent = formatTime(timeLeft);
 
-// Add event listener to the hint button
-hintButton.addEventListener("click", revealNextLetter);
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            showLostPopup();
+        }
+    }, 1000);
+}
+
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
+}
+
+// Lost Popup
+function showLostPopup() {
+    noInputSound.play();
+
+    const popup = document.createElement("div");
+    popup.className = "popup-overlay";
+    popup.innerHTML = `
+        <div class="popup">
+            <h2>You Lost!</h2>
+            <p>Time's up! Better luck next time!</p>
+            <div class="popup-buttons">
+                <button class="try-again-button" onclick="tryAgain()">Try Again</button>
+                <button class="quit-button" onclick="quitGame()">Quit</button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(popup);
+}
+
+// Try Again
+function tryAgain() {
+    window.location.href = "word.html";
+}
+
+// Quit Game
+function quitGame() {
+    window.location.href = "welcome.html";
+}
+
+// Show Message
+function showMessage(message, className) {
+    messageDisplay.textContent = message;
+    messageDisplay.className = `message ${className}`;
+    setTimeout(() => {
+        messageDisplay.textContent = "";
+        messageDisplay.className = "";
+    }, 1500);
+}
+
+// Initialize Game
+document.addEventListener("DOMContentLoaded", () => {
+    loadNewWordSet();
+    startTimer();
+    hintCountDisplay.textContent = totalHintLimit;
+    hintButton.addEventListener("click", revealNextLetter);
+});
+
