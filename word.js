@@ -537,15 +537,13 @@ const wordSets = [
 
 ];
 
-// Global Variables
 let currentWords = [];
 let currentWordIndex = 1;
 let revealedLetters = [];
-let timeLeft = 120; // 2 minutes in seconds
+let timeLeft = 120;
 let timerInterval;
-let totalHintLimit = 10; // Total hints allowed
+let totalHintLimit = 7;
 
-// DOM Elements
 const wordDisplay = document.getElementById("word-list");
 const guessInput = document.getElementById("guess");
 const messageDisplay = document.getElementById("message");
@@ -553,14 +551,12 @@ const hintButton = document.getElementById("hint-button");
 const timerDisplay = document.getElementById("timer");
 const hintCountDisplay = document.getElementById("hint-count");
 
-// Sound Effects
 const correctSound = new Audio("sounds/correct.mp3");
 const incorrectSound = new Audio("sounds/incorrect.mp3");
 const noInputSound = new Audio("sounds/noinput.mp3");
 const completeSound = new Audio("sounds/complete.mp3");
 const lostSound = new Audio("sounds/noinput.mp3");
 
-// Load New Word Set
 function loadNewWordSet() {
     currentWords = wordSets[Math.floor(Math.random() * wordSets.length)];
     currentWordIndex = 1;
@@ -568,7 +564,6 @@ function loadNewWordSet() {
     updateWordList();
 }
 
-// Update Word List
 function updateWordList() {
     let wordListHtml = currentWords
         .map((word, index) => {
@@ -582,10 +577,9 @@ function updateWordList() {
     wordDisplay.innerHTML = wordListHtml;
 }
 
-// Submit Guess
 function submitGuess() {
     const guess = guessInput.value.trim().toLowerCase();
-    guessInput.value = ""; // Clear input
+    guessInput.value = "";
 
     if (!guess) {
         noInputSound.play();
@@ -612,7 +606,6 @@ function submitGuess() {
     }
 }
 
-// Reveal Next Letter
 function revealNextLetter() {
     if (currentWordIndex < currentWords.length) {
         const currentWord = currentWords[currentWordIndex];
@@ -633,7 +626,6 @@ function revealNextLetter() {
                 setTimeout(() => {
                     currentWordIndex++;
                     if (currentWordIndex === currentWords.length) {
-                
                         setTimeout(() => {
                             window.location.href = "congrats.html";
                         }, 500);
@@ -648,7 +640,6 @@ function revealNextLetter() {
     }
 }
 
-// Timer Functionality
 function startTimer() {
     timerDisplay.textContent = formatTime(timeLeft);
     timerInterval = setInterval(() => {
@@ -668,7 +659,6 @@ function formatTime(seconds) {
     return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
 }
 
-// Lost Popup
 function showLostPopup() {
     noInputSound.play();
 
@@ -687,17 +677,14 @@ function showLostPopup() {
     document.body.appendChild(popup);
 }
 
-// Try Again
 function tryAgain() {
     window.location.href = "word.html";
 }
 
-// Quit Game
 function quitGame() {
     window.location.href = "welcome.html";
 }
 
-// Show Message
 function showMessage(message, className) {
     messageDisplay.textContent = message;
     messageDisplay.className = `message ${className}`;
@@ -707,11 +694,9 @@ function showMessage(message, className) {
     }, 1500);
 }
 
-// Initialize Game
 document.addEventListener("DOMContentLoaded", () => {
     loadNewWordSet();
     startTimer();
     hintCountDisplay.textContent = totalHintLimit;
     hintButton.addEventListener("click", revealNextLetter);
 });
-

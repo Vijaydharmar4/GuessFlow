@@ -9,10 +9,8 @@
 </head>
 <body>
 
-    <!-- Star Background Container -->
     <div class="stars"></div>
 
-    <!-- Hidden SoundCloud Player -->
     <iframe 
         id="musicPlayer" 
         width="0" 
@@ -23,11 +21,10 @@
         src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/197478772&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false">
     </iframe>
 
-    <!-- Game UI -->
     <div id="game">
         <h1>GUESS THE WORDS</h1>
         <div class="header">
-            <span id="timer">02:00</span> <!-- Timer display -->
+            <span id="timer">02:00</span>
         </div>
         
         <div class="word-list-container">
@@ -42,29 +39,18 @@
         <button id="guessBtn" onclick="submitGuess()">Submit</button>
         <button id="hintBtn" onclick="revealNextLetter()">Hint</button>
         
-        <!-- Music Control Buttons -->
         <div id="music-controls">
             <button id="startMusicBtn" class="g" onclick="startMusic()">Play Music</button>
             <button id="stopMusicBtn" class="h" onclick="stopMusic()" style="display: none;">Pause Music</button>
         </div>
     </div>
 
-    <!-- External Scripts -->
     <script src="https://w.soundcloud.com/player/api.js"></script>
     <script src="word.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
     <script>
-        // Initialize Hammer.js for swipe gesture detection
-        // var hammer = new Hammer(document.body);  // Attach to the entire body
-        // hammer.on('swipedown', function(e) {
-        //     console.log("Swipe Down detected! Refreshing...");
-        //     window.location.reload(); // Reload the page
-        // });
-//9620102686
-        // Initialize SoundCloud widget
         const widget = SC.Widget(document.getElementById('musicPlayer'));
     
-        // Music Control Functions
         function startMusic() {
             widget.play();
             document.getElementById("startMusicBtn").style.display = "none";
@@ -77,7 +63,6 @@
             document.getElementById("stopMusicBtn").style.display = "none";
         }
     
-        // Replay Music Automatically
         widget.bind(SC.Widget.Events.FINISH, () => widget.play());
     </script>
 </body>

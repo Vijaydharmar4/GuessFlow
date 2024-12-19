@@ -6,38 +6,35 @@
     <title>Welcome to GuessFlow</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Global styling */
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: #000000; /* Dark background */
+            background: #000000;
             color: #ffffff;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Align content to the top */
+            align-items: flex-start;
             flex-direction: column;
             text-align: center;
-            position: relative; /* Needed for the stars to be placed inside the container */
-            min-height: 100vh;  /* Ensure body takes full height of the viewport */
-            overflow-y: auto;  /* Allow vertical scrolling */
+            position: relative;
+            min-height: 100vh;
+            overflow-y: auto;
         }
 
-        /* Container for the welcome text */
         .welcome-container {
-        align-self: center;
+            align-self: center;
             background: rgba(0, 0, 0, 0.8);
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
             width: 80%;
-            z-index: 2; /* To make sure the container stays above the stars */
+            z-index: 2;
             position: relative;
-            overflow: hidden; /* Prevents stars from overflowing the container */
-            transition: transform 0.3s ease-in-out; /* Smooth transition */
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
         }
 
-        /* Main welcome text */
         h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
@@ -45,25 +42,23 @@
             font-weight: 600;
             color: #ffffff;
             text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
-            transition: transform 0.3s ease-in-out; /* Smooth transition */
+            transition: transform 0.3s ease-in-out;
         }
 
         h1:hover {
-            transform: scale(1.1); /* Upscale on hover */
+            transform: scale(1.1);
         }
 
-        /* Game description */
         p {
             font-size: 1.2rem;
             margin-bottom: 30px;
-            transition: transform 0.3s ease-in-out; /* Smooth transition */
+            transition: transform 0.3s ease-in-out;
         }
 
         p:hover {
-            transform: scale(1.05); /* Slight upscale on hover */
+            transform: scale(1.05);
         }
 
-        /* Button styling */
         .start-btn {
             font-size: 1.2rem;
             padding: 15px 30px;
@@ -72,12 +67,11 @@
             border: none;
             border-radius: 25px;
             cursor: pointer;
-            transition: background 0.3s ease, transform 0.3s ease-in-out; /* Smooth transitions */
+            transition: background 0.3s ease, transform 0.3s ease-in-out;
             text-transform: uppercase;
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); 
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
         }
 
-        /* Optional background animation */
         @keyframes gradientAnimation {
             0% { background: #ff0000; }
             50% { background: #37ff00; }
@@ -88,30 +82,28 @@
             animation: gradientAnimation 3s infinite alternate;
         }
 
-        /* Description box styling */
         .description-box {
-            background-color: #000000;  /* Dark background for the box */
-            padding: 20px;               /* Add padding inside the box */
-            border-radius: 10px;         /* Rounded corners for the box */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Soft shadow around the box */
-            margin-bottom: 20px;         /* Adds space below the box */
-            max-width: 80%;              /* Restricts the width of the box */
-            margin-left: auto;           /* Centers the box horizontally */
-            margin-right: auto;          /* Centers the box horizontally */
-            transition: transform 0.3s ease-in-out; /* Smooth transition */
+            background-color: #000000;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            transition: transform 0.3s ease-in-out;
         }
 
         .description-box:hover {
-            transform: scale(1.05); /* Slight upscale on hover */
+            transform: scale(1.05);
         }
 
         .description-box h3 {
-            color: #f0f0f0;          /* Light color for the text */
-            font-size: 1rem;         /* Set font size */
-            line-height: 1.5;        /* Line height for better readability */
+            color: #f0f0f0;
+            font-size: 1rem;
+            line-height: 1.5;
         }
 
-        /* Star background */
         .stars {
             position: absolute;
             top: 0;
@@ -134,7 +126,6 @@
             animation: twinkle 2s infinite alternate;
         }
 
-        /* Keyframes for stars twinkling */
         @keyframes twinkle {
             0% { opacity: 0.5; }
             50% { opacity: 1; }
@@ -144,14 +135,11 @@
 </head>
 <body>
 
-    <!-- Star background container -->
     <div class="stars"></div>
 
-    <!-- Welcome container -->
     <div class="welcome-container">
         <h1>Welcome to GuessFlow!</h1>
 
-        <!-- Game description box -->
         <div class="description-box">
             <h2>
                 GuessFlow is an engaging word-guessing game where players test their vocabulary and quick thinking.</h2>
@@ -159,19 +147,17 @@
                 correctly.</h3>
                 <h3>-->   A word is provided to begin with and its immediate next word will be related to this word.</h3>
                 <h3>-->   Guess the word based on its previous words. You can also use hints to reveal letters of word.</h3>
-                
+                <h3>NOTE : MAKE SURE TO WRITE COMPLETE WORD BEFORE SUBMITTING</h3>
         </div>
 
         <h5>Get ready to test your skills in this fun word-guessing game. Can you guess all the words?</h5>
 
-        <!-- Start game button -->
         <button class="start-btn" onclick="startGame()">Play</button>
     </div>
 
     <script>
-        // Redirect to game page when the start button is clicked
         function startGame() {
-            window.location.href = 'word.html';  // Update with the actual path to your game page
+            window.location.href = 'word.html';
         }
     </script>
 
