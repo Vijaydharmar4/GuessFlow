@@ -33,16 +33,16 @@
 
         .button-container {
             display: flex;
-            flex-direction: column; /* Stack buttons vertically on mobile */
+            flex-direction: column;
             align-items: center;
             gap: 15px;
-            width: 100%; /* Full width for better touch accessibility */
-            max-width: 400px; /* Limit max width */
+            width: 100%;
+            max-width: 400px;
         }
 
         button {
-            width: 70%; /* Full width button for mobile */
-            max-width: 300px; /* Limit width for larger screens */
+            width: 70%;
+            max-width: 300px;
             padding: 15px;
             font-size: 1rem;
             font-weight: bold;
@@ -63,25 +63,24 @@
             color: white;
         }
 
-
-        /* Responsive styles for smaller devices */
         @media (max-width: 480px) {
             h1 {
-                font-size: 2rem; /* Reduce heading size */
+                font-size: 2rem;
             }
 
             p {
-                font-size: 1rem; /* Adjust paragraph size */
+                font-size: 1rem;
             }
 
             button {
                 padding: 12px;
-                font-size: 0.9rem; /* Slightly smaller button text */
+                font-size: 0.9rem;
             }
         }
-    #quitbtn{
-        width: 50%;
-    }
+
+        #quitbtn {
+            width: 50%;
+        }
     </style>
 </head>
 <body>
@@ -95,26 +94,22 @@
     <p style="font-size: 0.9rem; margin-top: 30px; color: #ccc; text-align: center;">
         <strong>Note:</strong> This game is currently a prototype and may not represent the final version. Features and content are subject to change as we continue to improve and refine the experience.
     </p>
-    
 
-    <!-- Sound for the congrats page -->
     <audio id="completeSound" src="sounds/complete.mp3" autoplay></audio>
 
     <script>
-        // Play the "complete" sound when the page loads
         const completeSound = document.getElementById("completeSound");
 
-        // Ensure the sound is replayed on reload
         completeSound.addEventListener("canplay", () => {
             completeSound.play();
         });
 
         function playNextSet() {
-            window.location.href = "word.html"; // Redirect to the game page
+            window.location.href = "word.html";
         }
 
         function quitGame() {
-            window.location.href = "welcome.html"; // Redirect to the home page
+            window.location.href = "welcome.html";
         }
     </script>
 </body>

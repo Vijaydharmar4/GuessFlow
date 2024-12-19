@@ -1,21 +1,20 @@
 /* General Styling */
 body {
     font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #ffffff; /* Dark background */
-            color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start; /* Align content to the top */
-            flex-direction: column;
-            text-align: center;
-            position: relative; /* Needed for the stars to be placed inside the container */
-            min-height: 100vh;  /* Ensure body takes full height of the viewport */
-            overflow-y: auto;  /* Allow vertical scrolling */
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    min-height: 100vh;
+    overflow-y: auto;
 }
 
-/* Star background */
 .stars {
     position: absolute;
     top: 0;
@@ -38,14 +37,12 @@ body {
     animation: twinkle 2s infinite alternate;
 }
 
-/* Keyframes for stars twinkling */
 @keyframes twinkle {
     0% { opacity: 0.5; }
     50% { opacity: 1; }
     100% { opacity: 0.5; }
 }
 
-/* Game Container */
 #game {
     align-self: center;
     background: rgba(0, 0, 0, 0.8);
@@ -53,35 +50,31 @@ body {
     border-radius: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     width: 80%;
-    z-index: 2; /* To make sure the container stays above the stars */
+    z-index: 2;
     position: relative;
-    overflow: hidden; /* Prevents stars from overflowing the container */
-    transition: transform 0.3s ease-in-out; /* Smooth transition */
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
 }
 
-/* Headings */
 h1 {
-    font-size: 35px; /* Larger value in pixels */
-    margin-top: -20px; /* Moves the h1 slightly upward */
+    font-size: 35px;
+    margin-top: -20px;
     text-transform: uppercase;
     font-weight: 600;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Slight shadow for emphasis */
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 }
 
-
-/* Input Field */
 input {
     width: 50%;
     padding: 10px;
     border-radius: 8px;
-    border: 1px solid #444; /* Darker border for minimal look */
+    border: 1px solid #444;
     background: #1e1e1e;
     color: #f0f0f0;
     font-size: 1rem;
-    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6); /* Dark inner shadow */
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6);
 }
 
-/* Button Styles */
 button {
     padding: 12px 24px;
     border: none;
@@ -92,47 +85,42 @@ button {
     transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-/* Submit Button Styling */
 #guessBtn {
-    background-color: #00ff08; /* Green background */
+    background-color: #00ff08;
     color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Slight shadow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 }
 
 #guessBtn:hover {
-    background-color: #00ff0d; /* Darker green on hover */
-    transform: scale(1.05); /* Slight scale effect */
+    background-color: #00ff0d;
+    transform: scale(1.05);
 }
 
-/* Hint Button Styling */
 #hintBtn {
-    background-color: #ff0000; /* Orange background */
+    background-color: #ff0000;
     color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Slight shadow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 }
 
 #hintBtn:hover {
-    background-color: #ff0000; /* Darker orange on hover */
-    transform: scale(1.05); /* Slight scale effect */
+    background-color: #ff0000;
+    transform: scale(1.05);
 }
 
-
-/* Word List Container */
 .word-list-container {
     width: 300%;
     max-width: 200px;
-    margin: 0 auto; 
-    margin-bottom: 15px;  
+    margin: 0 auto;
+    margin-bottom: 15px;
     padding: 20px;
-    background-color: #000000;  
+    background-color: #000000;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);  
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
 
-/* Style for the word list */
 #word-list {
     font-size: 18px;
     color: #f0f0f0;
@@ -140,7 +128,6 @@ button {
     margin: 0;
 }
 
-/* Music Controls */
 #music-controls {
     margin-top: 20px;
 }
@@ -156,10 +143,9 @@ button {
     text-transform: uppercase;
 }
 
-/* Styling for feedback messages */
 .message {
     font-size: 0.8rem;
-    padding: 10px; 
+    padding: 10px;
     margin-top: 0px;
     border-radius: 15px;
     display: inline-block;
@@ -168,31 +154,26 @@ button {
     transition: all 0.3s ease;
 }
 
-/* Correct guess message */
 .correct-message {
-    background-color: #00ff08; /* Green background */
+    background-color: #00ff08;
     color: white;
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
-    animation: correctAnimation 0.5s ease-in-out; /* Animation */
+    animation: correctAnimation 0.5s ease-in-out;
 }
 
-/* Incorrect guess message */
 .incorrect-message {
-    background-color: #ff1100; /* Red background */
+    background-color: #ff1100;
     color: white;
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
-    animation: incorrectAnimation 0.5s ease-in-out; /* Animation */
+    animation: incorrectAnimation 0.5s ease-in-out;
 }
 
-/* No input message */
 .noinput-message {
-    
     color: white;
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
-    animation: noInputAnimation 0.5s ease-in-out; /* Animation */
+    animation: noInputAnimation 0.5s ease-in-out;
 }
 
-/* Keyframe animations */
 @keyframes correctAnimation {
     0% { transform: scale(1); opacity: 0.5; }
     100% { transform: scale(1.1); opacity: 1; }
@@ -211,19 +192,15 @@ button {
     100% { transform: scale(1.1); opacity: 1; }
 }
 
-/* Timer Styling */
-/* #timer {
-    font-size: 1.5rem;
+#timer {
     font-weight: bold;
     color: #fff;
-    background-color: #282c34;
-    padding: 10px 20px;
+    background-color: #ff0000;
+    padding: 5px 5px;
     border-radius: 8px;
     display: inline-block;
-    margin-left: 20px;
-} */
+}
 
-/* Popup Overlay */
 .popup-overlay {
     position: fixed;
     top: 0;
@@ -237,7 +214,6 @@ button {
     z-index: 1000;
 }
 
-/* Popup Content */
 .popup {
     background-color: #1e1e1e;
     color: #fff;
@@ -259,7 +235,6 @@ button {
     margin-bottom: 20px;
 }
 
-/* Popup Buttons */
 .popup-buttons button {
     padding: 10px 20px;
     margin: 0 10px;
@@ -287,5 +262,3 @@ button {
 .quit-button:hover {
     background-color: #e53935;
 }
-
-
